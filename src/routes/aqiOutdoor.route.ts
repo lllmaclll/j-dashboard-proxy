@@ -1,0 +1,5 @@
+import { Elysia } from 'elysia';
+import { getAQIOutdoor } from '../controllers/aqiOutdoor.controller';
+
+export const aqiOutdoorRoute = new Elysia()
+  .get('/api/aqi/outdoor', getAQIOutdoor)
