@@ -1,8 +1,10 @@
+
 import { fetchAQIOutdoorAll, fetchAQIOutdoorByStation } from "../services/aqiOutdoor.service";
 
 export const getAQIOutdoor = async ({ query }: { query: Record<string, string> }) => {
+  const stationID = query.stationID;
+
   try {
-    const stationID = query.stationID;
     const res = stationID ? await fetchAQIOutdoorByStation(stationID) : await fetchAQIOutdoorAll();
 
     return new Response(JSON.stringify(res.data), {
